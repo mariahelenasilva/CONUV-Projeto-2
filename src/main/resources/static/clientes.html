@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Clientes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container" data-cadastro="clientes">
+        <nav aria-label="Cadastros"><a href="/">Produtos</a> · <a href="/clientes.html">Clientes</a> · <a href="/vendas.html">Vendas</a></nav>
+        <h1>Cadastro de Clientes</h1>
+        <form id="cadastroForm">
+            <input type="hidden" id="id">
+            <label for="nome">Nome</label>
+            <input id="nome" type="text" maxlength=150 required>
+            <label for="cpf">CPF</label>
+            <input id="cpf" type="text" maxlength=14 required>
+            <label for="idade">Idade</label>
+            <input id="idade" type="number" min=0 required>
+            <label for="profissao">Profissão</label>
+            <input id="profissao" type="text" maxlength=100 required>
+            <label for="endereco">Endereço</label>
+            <input id="endereco" type="text" maxlength=255 required>
+            <div class="botoes">
+                <button type="submit" id="btnSalvar" disabled>Cadastrar</button>
+                <button type="button" id="btnCancelar" class="secundario" hidden>Cancelar edição</button>
+            </div>
+        </form>
+        <p id="mensagem" role="status"></p>
+        <h2>Clientes cadastrados</h2>
+        <div class="tabela-container">
+            <table>
+                <thead><tr><th>ID</th><th>Nome</th><th>CPF</th><th>Idade</th><th>Profissão</th><th>Endereço</th><th>Ações</th></tr></thead>
+                <tbody id="listaRegistros"></tbody>
+            </table>
+        </div>
+    </main>
+    <script src="cadastros.js"></script>
+</body>
+</html>

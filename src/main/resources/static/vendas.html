@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Vendas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container" data-cadastro="vendas">
+        <nav aria-label="Cadastros"><a href="/">Produtos</a> · <a href="/clientes.html">Clientes</a> · <a href="/vendas.html">Vendas</a></nav>
+        <h1>Cadastro de Vendas</h1>
+        <form id="cadastroForm">
+            <input type="hidden" id="id">
+            <label for="data">Data</label>
+            <input id="data" type="date" required>
+            <label for="loja">Loja</label>
+            <input id="loja" type="text" maxlength=100 required>
+            <label for="idCliente">Cliente</label>
+            <select id="idCliente" data-origem="clientes" required></select>
+            <label for="idProduto">Produto</label>
+            <select id="idProduto" data-origem="produtos" required></select>
+            <label for="quantidade">Quantidade</label>
+            <input id="quantidade" type="number" min=1 required>
+            <label for="valorVenda">Valor da venda (R$)</label>
+            <input id="valorVenda" type="number" min=0.01 max=99999999.99 step=0.01 required>
+            <div class="botoes">
+                <button type="submit" id="btnSalvar" disabled>Cadastrar</button>
+                <button type="button" id="btnCancelar" class="secundario" hidden>Cancelar edição</button>
+            </div>
+        </form>
+        <p id="mensagem" role="status"></p>
+        <h2>Vendas cadastradas</h2>
+        <div class="tabela-container">
+            <table>
+                <thead><tr><th>ID</th><th>Data</th><th>Loja</th><th>Cliente</th><th>Produto</th><th>Quantidade</th><th>Valor da venda (R$)</th><th>Ações</th></tr></thead>
+                <tbody id="listaRegistros"></tbody>
+            </table>
+        </div>
+    </main>
+    <script src="cadastros.js"></script>
+</body>
+</html>
