@@ -115,7 +115,7 @@ async function carregar() {
             ...seletores.map(async campo => {
                 const opcoes = await requisitar('/' + campo.dataset.origem);
                 campo.replaceChildren(new Option('Selecione', ''));
-                for (const item of opcoes) campo.add(new Option(item.nome + ' (#' + item.id + ')', item.id));
+                for (const item of opcoes) campo.add(new Option(item.nome, item.id));
             })
         ]);
         renderizar(registros);
